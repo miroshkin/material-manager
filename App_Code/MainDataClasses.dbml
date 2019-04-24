@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MEZ_Production" Class="MainDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=MEZ-0022;Initial Catalog=MEZ_Production;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="MEZ_ProductionConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.ogk_SelectProductWithUnits" Method="ogk_SelectProductWithUnits">
+    <Parameter Name="ParentID" Parameter="parentID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ArticleID" Parameter="articleID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ogk_SelectProductWithUnitsResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="TYPE" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="DRAWING" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="UNIT" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="SCALE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="QUANTITY" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="UNIT_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ogk_SelectScale" Method="ogk_SelectScale">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ogk_SelectScaleResult">
+      <Column Name="SCALE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ogk_SelectUnits" Method="ogk_SelectUnits">
+    <ElementType Name="ogk_SelectUnitsResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ogk_SelectProductionTypes" Method="ogk_SelectProductionTypes">
+    <ElementType Name="ogk_SelectProductionTypesResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ogk_GetArticleChildren" Method="ogk_GetArticleChildren" IsComposable="true">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ogk_AddArticleGroup" Method="ogk_AddArticleGroup">
+    <Parameter Name="PARENT_ID" Parameter="pARENT_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NAME" Parameter="nAME" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="PREFIX" Parameter="pREFIX" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="TYPE_ID" Parameter="tYPE_ID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ogk_RemoveArticleGroup" Method="ogk_RemoveArticleGroup">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ogk_EditArticleGroup" Method="ogk_EditArticleGroup">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NAME" Parameter="nAME" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="PREFIX" Parameter="pREFIX" Type="System.String" DbType="NVarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ogk_GroupNameCheckUpGetID" Method="ogk_GroupNameCheckUpGetID" IsComposable="true">
+    <Parameter Name="GroupName" Parameter="groupName" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="ParentGroupID" Parameter="parentGroupID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ogk_SelectArticleTypes" Method="ogk_SelectArticleTypes">
+    <ElementType Name="ogk_SelectArticleTypesResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ogk_SelectArticleTypesForGroups" Method="ogk_SelectArticleTypesForGroups">
+    <ElementType Name="ogk_SelectArticleTypesForGroupsResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ogk_MoveArticleGroup" Method="ogk_MoveArticleGroup">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PARENT_ID" Parameter="pARENT_ID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ogk_SelectArticleGroups" Method="ogk_SelectArticleGroups">
+    <Parameter Name="PARENT_ID" Parameter="pARENT_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TYPE_ID" Parameter="tYPE_ID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ogk_SelectArticleGroupsResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="PREFIX" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ogk_SelectProductionArticles" Method="ogk_SelectProductionArticles">
+    <Parameter Name="TYPE_ID" Parameter="tYPE_ID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ogk_SelectProductionArticlesResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="ORDER_NUMBER" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DRAWING" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SELF_PRICE" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="OTHERS_PRICE" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ogk_SelectArticlesOfGroup" Method="ogk_SelectArticlesOfGroup">
+    <Parameter Name="GROUP_ID" Parameter="gROUP_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TYPE_ID" Parameter="tYPE_ID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ogk_SelectArticlesOfGroupResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="DRAWING" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ogk_AddArticle" Method="ogk_AddArticle">
+    <Parameter Name="NAME" Parameter="nAME" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="DRAWING" Parameter="dRAWING" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="GROUP_ID" Parameter="gROUP_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PRICE" Parameter="pRICE" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="TYPE_ID" Parameter="tYPE_ID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ogk_SelectArticle" Method="ogk_SelectArticle">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ogk_SelectArticleResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="DRAWING" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SELF_PRICE" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="TYPE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PRODUCTION_GROUP_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ogk_EditArticle" Method="ogk_EditArticle">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NAME" Parameter="nAME" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="DRAWING" Parameter="dRAWING" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="GROUP_ID" Parameter="gROUP_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PRICE" Parameter="pRICE" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="TYPE_ID" Parameter="tYPE_ID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ogk_GetProductsCountForArticleGroup" Method="ogk_GetProductsCountForArticleGroup" IsComposable="true">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ogk_GetArticleParentsCount" Method="ogk_GetArticleParentsCount" IsComposable="true">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ogk_SelectProductionTreeChildren" Method="ogk_SelectProductionTreeChildren">
+    <Parameter Name="ARTICLE_ID" Parameter="aRTICLE_ID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ogk_SelectProductionTreeChildrenResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PARENT_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CHILD_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DRAWING" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="QUANTITY" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="TYPE_CODE" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TYPE_NAME" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="UNIT_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UNIT_SCALE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="QUANTITY_TEXT" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ogk_SelectProduct" Method="ogk_SelectProduct">
+    <Parameter Name="ARTICLE_ID" Parameter="aRTICLE_ID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ogk_SelectProductResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="DRAWING" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="TYPE_CODE" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TYPE_NAME" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ogk_EditProductionTreeItem" Method="ogk_EditProductionTreeItem">
+    <Parameter Name="OUTER_PRODUCT_ID" Parameter="oUTER_PRODUCT_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="INNER_PRODUCT_ID" Parameter="iNNER_PRODUCT_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="QUANTITY" Parameter="qUANTITY" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="UNIT_ID" Parameter="uNIT_ID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ogk_GetDefaultProductionUnitID" Method="ogk_GetDefaultProductionUnitID" IsComposable="true">
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ogk_GroupProducts" Method="ogk_GroupProducts">
+    <Parameter Name="OUTER_PRODUCT_ID" Parameter="oUTER_PRODUCT_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="INNER_PRODUCT_ID" Parameter="iNNER_PRODUCT_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="QUANTITY" Parameter="qUANTITY" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="UNIT_ID" Parameter="uNIT_ID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ogk_UngroupProducts" Method="ogk_UngroupProducts">
+    <Parameter Name="OUTER_PRODUCT_ID" Parameter="oUTER_PRODUCT_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="INNER_PRODUCT_ID" Parameter="iNNER_PRODUCT_ID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ogk_RemoveArticle" Method="ogk_RemoveArticle">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ogk_DrawingAndNameCheckUpCreate" Method="ogk_DrawingAndNameCheckUpCreate">
+    <Parameter Name="Drawing" Parameter="drawing" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="productName" Type="System.String" DbType="NVarChar(MAX)" />
+    <ElementType Name="ogk_DrawingAndNameCheckUpCreateResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ogk_DrawingAndNameCheckUpEdit" Method="ogk_DrawingAndNameCheckUpEdit">
+    <Parameter Name="Drawing" Parameter="drawing" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="productID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="productName" Type="System.String" DbType="NVarChar(MAX)" />
+    <ElementType Name="ogk_DrawingAndNameCheckUpEditResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ogk_GetGroupChildrenCount" Method="ogk_GetGroupChildrenCount" IsComposable="true">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ogk_SearchForProductionArticle" Method="ogk_SearchForProductionArticle">
+    <Parameter Name="NAME_PATTERN" Parameter="nAME_PATTERN" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="DRAWING_PATTERN" Parameter="dRAWING_PATTERN" Type="System.String" DbType="NVarChar(MAX)" />
+    <ElementType Name="ogk_SearchForProductionArticleResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DRAWING" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="TYPE_NAME" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ogk_SearchForProductionArticleDrawing" Method="ogk_SearchForProductionArticleDrawing">
+    <Parameter Name="PATTERN" Parameter="pATTERN" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="COUNT" Parameter="cOUNT" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ogk_SearchForProductionArticleDrawingResult">
+      <Column Name="DRAWING" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ogk_SearchForProductionArticleName" Method="ogk_SearchForProductionArticleName">
+    <Parameter Name="PATTERN" Parameter="pATTERN" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="COUNT" Parameter="cOUNT" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ogk_SearchForProductionArticleNameResult">
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ogk_SearchForProductionArticleName_All" Method="ogk_SearchForProductionArticleName_All">
+    <Parameter Name="PATTERN" Parameter="pATTERN" Type="System.String" DbType="NVarChar(MAX)" />
+    <ElementType Name="ogk_SearchForProductionArticleName_AllResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DRAWING" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="TYPE_NAME" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ogk_SelectArticleGroup" Method="ogk_SelectArticleGroup">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ogk_SelectArticleGroupResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="PARENT_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ogk_GroupNameCheckUp" Method="ogk_GroupNameCheckUp" IsComposable="true">
+    <Parameter Name="GroupName" Parameter="groupName" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="ParentGroupID" Parameter="parentGroupID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ArticleTypeID" Parameter="articleTypeID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ogk_GetArticleProductionType" Method="ogk_GetArticleProductionType" IsComposable="true">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ogk_GetArticleParents" Method="ogk_GetArticleParents">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ogk_GetArticleParentsResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="DRAWING" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="TYPE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ogk_CTE_DEMO" Method="ogk_CTE_DEMO">
+    <ElementType Name="ogk_CTE_DEMOResult">
+      <Column Name="ARTICLE_NAME" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ARTICLE_GROUP_NAME" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="COMPONENT_NAME" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="QUANTITY" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="UNIT_NAME" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ogk_GetProductSpecification" Method="ogk_GetProductSpecification">
+    <Parameter Name="PRODUCT_ID" Parameter="pRODUCT_ID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ogk_GetProductSpecificationResult">
+      <Column Name="ARTICLE_NAME" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ARTICLE_GROUP_NAME" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="COMPONENT_NAME" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="QUANTITY" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="UNIT_NAME" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DRAWING" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ogk_ChangeParent" Method="ogk_ChangeParent">
+    <Parameter Name="OUTER_PRODUCT_ID" Parameter="oUTER_PRODUCT_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="INNER_PRODUCT_ID" Parameter="iNNER_PRODUCT_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NEW_OUTER_PRODUCT_ID" Parameter="nEW_OUTER_PRODUCT_ID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ogk_GetUsers" Method="ogk_GetUsers">
+    <ElementType Name="ogk_GetUsersResult">
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>

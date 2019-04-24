@@ -1,0 +1,1696 @@
+﻿body {
+    margin: 0;
+    font-family: Verdana;
+    font-size: 1em;
+}
+
+#overlay {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 100;
+    opacity: 0.65;
+}
+
+hr {
+    height: 1px;
+    color: #507CD1;
+    background-color: #507CD1;
+    margin: 0 10px 0 10px;
+    padding: 0;
+    border: none;
+}
+
+.tablecell {
+    font-weight: bold;
+}
+
+.amount {
+    top: 310px;
+    position: absolute;
+    font-family: Verdana;
+    font-weight: bold;
+}
+
+.button {
+    font-family: Verdana;
+    background-color: White;
+    border-width: 1px;
+    border-color: #507CD1;
+    /*border-radius:8px;*/
+    height: 30px;
+    width: 270px;
+    text-align: left;
+    /*-webkit-border-radius: 8px;  
+    -moz-border-radius: 8px;  */
+    margin: 4px;
+    background-position: 235px;
+    background-repeat: no-repeat;
+    outline: none;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+    .button:hover {
+        background-color: #507CD1;
+        color: White;
+        border-color: #1451C7;
+    }
+
+/*Стилизуем таблицу Gridview по каждому стобцу*/
+
+/*Стиль стобца с изображением изделий*/
+.productImageColumn {
+    width: 32px;
+    max-width: 32px;
+    min-width: 32px;
+}
+
+/*Стиль столбца с чертежом/ГОСТом изделия*/
+.productDrawingColumn {
+    width: 280px;
+    max-width: 280px;
+    min-width: 280px;
+}
+
+/*Стиль столбца с названием изделия*/
+.productNameColumn {
+    width: 100%;
+    min-width: 400px;
+    max-width: 309px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 5px;
+}
+
+/*Скрытый столбец с ID изделия*/
+.productIdColumn {
+    display: none;
+}
+
+productEnteringColumn {
+}
+
+/*Стиль столбца с префиксом группы*/
+.groupPrefix {
+    width: 100%;
+    max-width: 280px;
+    min-width: 280px;
+}
+
+/*Стиль столбца с названием изделия*/
+.groupNameColumn {
+    /*width:100%;*/
+    min-width: 734px;
+    min-width: 734px;
+}
+
+/*Кнопка перехода на изделие уровнем выше*/
+.buttonGoToUpperLevel {
+    font-family: Verdana;
+    border: solid 1px white;
+    height: 30px;
+    width: 30px;
+    text-align: left;
+    background-color: White;
+    background-position: 2px;
+    background-repeat: no-repeat;
+    outline: none;
+    transition: 0.2s;
+    top: 10px;
+    left: 10px;
+    position: absolute;
+    /* margin-left: 16px; */
+    background-color: transparent;
+    z-index: 97;
+}
+
+    .buttonGoToUpperLevel:hover {
+        border: solid 1px #507CD1;
+        color: Black;
+        border-color: #1451C7;
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+.buttonUpperLevel {
+    font-family: Verdana;
+    border: solid 1px white;
+    height: 30px;
+    width: 30px;
+    text-align: left;
+    background-color: White;
+    background-position: 2px;
+    background-repeat: no-repeat;
+    outline: none;
+    transition: 0.2s;
+    top: 10px;
+    left: 10px;
+    position: absolute;
+    /* margin-left: 16px; */
+    background-color: transparent;
+}
+
+.amount_drop_down_list {
+    position: absolute;
+    text-align: right;
+    margin-left: 20px;
+    margin-right: 20px;
+    left: 247px;
+    height: 21px;
+    border: solid;
+    border-width: 1px;
+    border-color: #507CD1;
+    outline: none;
+}
+
+.amount_textbox {
+    position: absolute;
+    text-align: right;
+    margin-left: 10px;
+    width: 120px;
+    height: 16px;
+    border-color: #507CD1;
+    border-width: 1px;
+    padding-right: 3px;
+    outline: none;
+}
+
+.column_style {
+    width: 120px;
+    max-width: 230px;
+    min-width: 230px;
+}
+
+.SelectedNodeStyle {
+    font-weight: bold;
+    font-size: 135px;
+    background-color: Blue;
+}
+
+.confirmation_string {
+    position: absolute;
+    top: 35px;
+    width: 250px;
+    font-size: 12px;
+}
+
+.validator {
+    position: absolute;
+    top: 50px;
+    width: 200px;
+    left: 0px;
+    color: red;
+    font-size: 0.8em;
+}
+
+.subgroups_and_products {
+    position: absolute;
+    left: 415px;
+    top: 20px;
+}
+
+.save_changes_button {
+    font-family: Verdana;
+    border-color: #507CD1;
+    height: 30px;
+    width: 198px;
+    text-align: left;
+    text-align: center;
+    border-width: 2px;
+    top: -8px;
+    background-color: #507CD1;
+    left: 350px;
+    position: absolute;
+    background-color: white;
+    border-width: 1px;
+    border-color: #507CD1;
+    text-align: left;
+    margin: 4px;
+    background-position: 165px;
+    background-repeat: no-repeat;
+    background-image: url(../Icons/box_preferences.png);
+    outline: none;
+    transition: 0.2s;
+}
+
+    .save_changes_button:hover {
+        background-color: #507CD1;
+        color: White;
+        cursor: pointer;
+    }
+
+.save_button {
+    font-family: Verdana;
+    border-color: #507CD1;
+    border-radius: 8px;
+    height: 30px;
+    width: 120px;
+    text-align: left;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    text-align: center;
+    border-width: 2px;
+    top: -8px;
+    background-color: #507CD1;
+    left: 350px;
+    position: absolute;
+    background-color: white;
+    border-width: 1px;
+    border-color: #507CD1;
+    text-align: left;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    margin: 4px;
+    background-position: 85px;
+    background-repeat: no-repeat;
+    background-image: url(../Icons/box_preferences.png);
+    transition: 0.2s;
+}
+
+    .save_button:hover {
+        background-color: #507CD1;
+        color: White;
+    }
+
+.add_button {
+    font-family: Verdana;
+    border-color: #507CD1;
+    border-radius: 8px;
+    height: 30px;
+    width: 120px;
+    text-align: left;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    text-align: center;
+    border-width: 2px;
+    background-color: #507CD1;
+    right: 130px;
+    bottom: 10px;
+    position: absolute;
+    background-color: white;
+    border-width: 1px;
+    border-color: #507CD1;
+    text-align: left;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    margin: 4px;
+    background-position: 85px;
+    background-repeat: no-repeat;
+    background-image: url(../Icons/box_preferences.png);
+}
+
+    .add_button:hover {
+        background-color: #507CD1;
+        color: White;
+    }
+
+.cancel_button {
+    font-family: Verdana;
+    border-color: #507CD1;
+    height: 30px;
+    width: 85px;
+    text-align: left;
+    text-align: center;
+    border-width: 2px;
+    background-color: #507CD1;
+    right: 10px;
+    bottom: 10px;
+    position: absolute;
+    background-color: white;
+    border-width: 1px;
+    border-color: #507CD1;
+    text-align: center;
+    margin: 4px;
+    background-position: 65px;
+    background-repeat: no-repeat;
+}
+
+    .cancel_button:hover {
+        background-color: #507CD1;
+        color: White;
+        cursor: pointer;
+    }
+
+    .cancel_button.cancel_button_specification_form {
+        top: 518px;
+        right: -4px;
+        font-size: 13px;
+        outline: 0;
+    }
+
+.yes_button {
+    font-family: Verdana;
+    border-color: #507CD1;
+    border-radius: 8px;
+    height: 30px;
+    width: 100px;
+    text-align: left;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    text-align: center;
+    border-width: 2px;
+    background-color: #507CD1;
+    right: 10px;
+    bottom: 10px;
+    position: absolute;
+    background-color: white;
+    border-width: 1px;
+    border-color: #507CD1;
+    text-align: left;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    margin: 4px;
+    background-position: 65px;
+    background-repeat: no-repeat;
+    background-image: url(../Icons/box_out.png);
+}
+
+    .yes_button:hover {
+        background-color: #507CD1;
+        color: White;
+    }
+
+.no_button {
+    font-family: Verdana;
+    border-color: #507CD1;
+    border-radius: 8px;
+    height: 30px;
+    width: 100px;
+    text-align: left;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    text-align: center;
+    border-width: 2px;
+    background-color: #507CD1;
+    right: 10px;
+    bottom: 10px;
+    position: absolute;
+    background-color: white;
+    border-width: 1px;
+    border-color: #507CD1;
+    text-align: left;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    margin: 4px;
+    background-position: 65px;
+    background-repeat: no-repeat;
+    background-image: url(../Icons/box_out.png);
+}
+
+    .no_button:hover {
+        background-color: #507CD1;
+        color: White;
+    }
+
+
+.top_right_panel {
+    position: absolute;
+    left: 50%;
+}
+
+.top_right_panel2 {
+    /*position: fixed;*/
+    margin-right: 5px;
+    top: 115px;
+    width: 275px;
+}
+.button_panel {
+    margin-top: 3px;
+}
+
+
+.button_image {
+    position: relative;
+    left: 0;
+    width: 50px;
+}
+
+.edit_button {
+    position: relative;
+    vertical-align: middle;
+}
+
+
+.edit_button_text {
+    font-weight: bold;
+    position: relative;
+    left: 48px;
+    top: -31px;
+}
+
+.delete_button_text {
+    font-weight: bold;
+    position: relative;
+    top: -30px;
+    left: 50px;
+}
+
+.delete_button {
+    position: relative;
+    top: -60px;
+    left: 280px;
+}
+
+    .delete_button:hover {
+    }
+
+
+
+h1 {
+    margin: 0;
+    padding: 5px;
+    font-size: 1.25em;
+    color: #444;
+}
+
+
+.tr {
+    background-color: red;
+}
+
+.text_box {
+    margin: 0;
+    padding: 0 5px 0 5px;
+    height: 30px;
+    font-family: Sans-Serif;
+    font-size: 1em;
+    border: 1px solid #666;
+}
+
+    .text_box:focus {
+        border-color: #ff8800;
+    }
+
+.combo_box {
+    margin: 0;
+    padding: 0;
+    height: 30px;
+    font-family: Sans-Serif;
+    font-size: 1em;
+    border: 1px solid #666;
+}
+
+
+
+    .combo_box:focus {
+        border-color: #ff8800;
+    }
+
+.delimiter {
+    height: 2px;
+    position: absolute;
+    top: 290px;
+    background-color: #507cd1;
+    box-shadow: 0px 1px 3px 0 rgba(0,0,0,.2);
+    width: 1%;
+}
+
+.hover_node {
+    background-color: #507CD1;
+    color: white;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    z-index: 97;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    font-size: 1em;
+    /* overflow: hidden;*/
+    background-color: #507CD1;
+    border-bottom: solid 1px;
+    border-bottom-color: #1a3f88;
+    box-shadow: 0px 2px 4px 0 rgba(0,0,0,.2);
+}
+
+.top_toolbar {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    z-index: 1002;
+    background-color: #fff;
+    min-width: 640px;
+}
+
+.contents {
+    margin-top: 100px;
+    margin-bottom: 70px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.bottom_toolbar {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    z-index: 1004;
+    background-color: #fff;
+    min-width: 640px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    z-index: 1005;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    font-size: 11px;
+    font-weight: normal;
+    overflow: hidden;
+    background-color: #507CD1;
+    border-top: solid 1px;
+    border-top-color: #1a3f88;
+    z-index: 100;
+}
+
+.table_header {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    height: auto;
+    z-index: 1003;
+    background-color: #0f0;
+}
+
+.table_contents {
+    margin-top: 130px;
+    margin-bottom: 70px;
+}
+
+.title {
+    width: 100%;
+    height: 30px;
+    font-size: 1.5em;
+    text-align: center;
+    color: #2C51BE;
+    overflow: hidden;
+    text-transform: uppercase;
+}
+
+.toolbar_slots {
+    width: 100%;
+    margin: 0;
+    padding: 5px;
+}
+
+.toolbar_slot_left {
+    width: auto;
+    text-align: left;
+}
+
+.toolbar_slot_middle {
+    width: auto;
+    text-align: center;
+}
+
+.toolbar_slot_right {
+    width: auto;
+    text-align: right;
+}
+
+.toolbar_button, .toolbar_button_green, .toolbar_button_red, .toolbar_button_wide {
+    display: inline-block;
+    width: 150px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    background-color: #507CD1;
+    border-style: none;
+    font-size: 1em;
+    font-style: normal;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    .toolbar_button:hover {
+        background-color: #FFBB33;
+    }
+
+.toolbar_button_wide {
+    width: 200px;
+}
+
+    .toolbar_button_wide:hover {
+        background-color: #FFBB33;
+    }
+
+.toolbar_button_green {
+    background-color: #669900;
+}
+
+    .toolbar_button_green:hover {
+        background-color: #FFBB33;
+    }
+
+.toolbar_button_red {
+    background-color: #f00;
+}
+
+    .toolbar_button_red:hover {
+        background-color: #FFBB33;
+    }
+
+.productDescription {
+    position: absolute;
+    top: -33px;
+    left: -1px;
+    padding-left: 9px;
+    right: 56px;
+    margin-right: -46px;
+    font-size: 18px;
+    font-weight: bold;
+    bottom: 80px;
+}
+
+
+.productDescriptionStartPage {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    /* padding-left: 9px; */
+    /* right: 64px; */
+    /* margin-right: -46px; */
+    font-size: 18px;
+    font-weight: bold;
+    bottom: 68px;
+    min-width: 800px;
+    width: 100%;
+}
+
+
+.logo {
+    z-index: 501;
+    position: absolute;
+    top: 5px;
+    left: 6px;
+    background-image: url('../Icons/logo.png');
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.popup_window_productDescription {
+    position: absolute;
+    left: 308px;
+    top: 31px;
+    margin-right: 15px;
+    background-color: #e8e8e8;
+    font-size: 25px;
+    font-weight: bold;
+    height: 485px;
+    width: 714px;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    border: solid 1px grey;
+    border-top: none;
+    /*box-shadow: 0px 2px 4px 0 rgba(0,0,0,.2);*/
+}
+
+#dropdown {
+    position: absolute;
+    top: 8px;
+    left: 7px;
+    right: 75%;
+    min-width: 150px;
+    z-index: 97;
+}
+
+.dropdown {
+    width: 100%;
+    border: solid grey;
+    border-width: 1px;
+}
+
+.dropdown2 {
+    width: 100%;
+    border: solid grey;
+    border-width: 1px;
+}
+
+.treeview {
+    position: absolute;
+    right: 75%;
+    left: 0px;
+    margin-right: 3px;
+    top: 0px;
+    bottom: 30px;
+    min-width: 250px;
+    font-size: 13px;
+    font-family: Verdana;
+}
+
+.popup_window_treeview {
+    position: absolute;
+    right: 65%;
+    left: 0px;
+    top: 31px;
+    bottom: -50px;
+    min-width: 300px;
+    width: 300px;
+    height: 485px;
+    font-size: 0.75em;
+    background-color: #FFFFFF;
+    font-family: Verdana;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    border: solid 1px gray;
+    border-top: none;
+    /* box-shadow: 0px 2px 4px 0 rgba(0,0,0,.2); */
+}
+
+.gridview {
+    position: absolute;
+    right: 20px;
+    top: 50px;
+    left: 26%;
+}
+
+.confirmation_product_name {
+    font-weight: bold;
+}
+
+.product_name {
+    width: 638px;
+    left: 37px;
+    position: relative;
+}
+
+.gridview_alt_row {
+    background-color: #def;
+}
+
+.gridview_item, .gridview_item_image, .gridview_item_fixed1, .gridview_item_fixed2, .gridview_item_fixed3, .gridview_item_fixed4, .gridview_item_fixed5, .gridview_item_fixed6 {
+    padding: 5px;
+    word-wrap: break-word;
+    text-align: left;
+}
+
+.gridview_item_hidden {
+    padding: 0;
+    margin: 0;
+    width: 0;
+    max-width: 0;
+    border-style: none;
+    border-spacing: 0;
+    display: none;
+    visibility: hidden;
+}
+
+.gridview_item_image {
+    padding: 0;
+    margin: 0;
+    min-width: 25px;
+    width: 25px;
+    text-align: center;
+}
+
+    .gridview_item_image:hover {
+        background-color: #ff8800;
+    }
+
+.gridview_item_fixed1 {
+    min-width: 75px;
+    text-align: center;
+}
+
+.gridview_item_fixed2 {
+    min-width: 100px;
+    text-align: center;
+}
+
+.gridview_item_fixed3 {
+    min-width: 125px;
+    text-align: center;
+}
+
+.gridview_item_fixed4 {
+    min-width: 150px;
+    text-align: center;
+}
+
+.gridview_item_fixed5 {
+    min-width: 175px;
+    text-align: center;
+}
+
+.gridview_item_fixed6 {
+    min-width: 200px;
+    text-align: center;
+}
+
+.gridview_column, .gridview_column_centered, .gridview_column_gray {
+    padding: 5px;
+    color: #fff;
+    background-color: #507CD1;
+    text-align: left;
+}
+
+.gridview_column_gray {
+    background-color: #ccc;
+}
+
+.gridview_column_hidden {
+    padding: 0;
+    margin: 0;
+    width: 0;
+    max-width: 0;
+    border-style: none;
+    border-spacing: 0;
+    display: none;
+    visibility: hidden;
+}
+
+.gridview_column_centered {
+    text-align: center;
+}
+
+.form_button {
+    display: inline-block;
+    width: 150px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0;
+    padding: 0;
+    color: #444;
+    background-color: #ccc;
+    border-style: none;
+    font-size: 1em;
+    font-style: normal;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    cursor: pointer;
+}
+
+    .form_button:hover {
+        background-color: #FFBB33;
+    }
+
+.background_fade {
+    background-color: #000;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+}
+
+.popup_window_header {
+    width: 640px;
+    height: 40px;
+    line-height: 40px;
+    vertical-align: middle;
+    padding: 0 10px 0 10px;
+    color: #888;
+    font-size: 1.5em;
+    text-align: left;
+    color: #2C51BE;
+    overflow: hidden;
+}
+
+.popup_window_title {
+    width: 640px;
+    height: 40px;
+    line-height: 40px;
+    vertical-align: middle;
+    padding: 0 10px 0 10px;
+    font-size: 1.5em;
+    text-align: left;
+    color: #2C51BE;
+    overflow: hidden;
+}
+
+.popup_window_top_toolbar {
+    position: fixed;
+    width: 640px;
+    height: 80px;
+}
+
+.popup_window {
+    width: 640px;
+    height: 480px;
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 5px;
+    box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
+}
+
+.completion_list {
+    margin: 0;
+    padding: 0;
+    border: 1px solid #000;
+    list-style-type: none;
+    font-size: 1em;
+    font-family: Sans-Serif;
+}
+
+.completion_list_item {
+    padding: 2px;
+    background-color: #ffc;
+    color: #000;
+}
+
+.completion_list_item_highlighted {
+    padding: 2px;
+    background-color: #48f;
+    color: #fff;
+    cursor: pointer;
+}
+
+.information_text {
+    font-size: 1.25em;
+    color: #ff8800;
+}
+
+.details_text {
+    font-size: 1em;
+    color: #669900;
+}
+
+.error_text {
+    font-size: 1.25em;
+    color: #cc0000;
+}
+
+.validation_error_text {
+    font-size: 1em;
+    color: #cc0000;
+}
+
+.hint {
+    font-size: 0.75em;
+    color: #999;
+}
+
+.completion_list {
+    margin: 0;
+    padding: 0;
+    border: 1px solid #000;
+    list-style-type: none;
+    font-size: 1em;
+    font-family: Sans-Serif;
+}
+
+.completion_list_item {
+    padding: 2px;
+    background-color: #ffc;
+    color: #000;
+}
+
+.completion_list_item_highlighted {
+    padding: 2px;
+    background-color: #48f;
+    color: #fff;
+    cursor: pointer;
+}
+
+.TopRightPanelButtons1 {
+    position: absolute;
+    left: 50%;
+    height: 50%;
+    z-index: 1100;
+}
+
+/*
+Стилизация вертикального меню перехода к редакторам изделий и групп
+*/
+.nav {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+    .nav li {
+        float: left;
+        width: 150px;
+        position: relative;
+        color: White;
+        background: #7DA1E8;
+        border: 1px solid #507CD1;
+        border-top: none;
+        height: 30px;
+        text-align: center;
+        padding-bottom: 10px;
+        transition: 0.15s;
+    }
+
+        .nav li:hover {
+            background-color: #ffbb33;
+            cursor: pointer;
+        }
+
+        .nav li a {
+            color: White;
+            text-decoration: none;
+        }
+
+            .nav li a:hover {
+                cursor: pointer;
+            }
+
+    .nav ul {
+        display: none;
+        position: absolute;
+        margin-left: 0px;
+        list-style: none;
+        padding: 0px;
+    }
+
+.productTypeDropdown {
+    border: 1px solid Grey;
+    position: absolute;
+    margin-left: 7px;
+    font-family: Verdana;
+    font-weight: normal;
+    height: 25px;
+    width: 100%;
+    right: 0px;
+    top: 0px;
+}
+
+.sectionName {
+    color: White;
+    background-color: transparent;
+    position: fixed;
+    top: 11px;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: Verdana;
+    left: 117px;
+    z-index: 100;
+}
+
+.bold_text {
+    font-weight: bold;
+}
+
+.CreateProductTextBox {
+    width: 419px;
+    /*width: 266px;*/
+}
+
+#productionArticlesGroups, #productionArticlesGroups option {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.LinkToProductEditor {
+    position: absolute;
+    top: 0px;
+    right: 20px;
+    z-index: 500000;
+    font-size: 13px;
+    color: White;
+    border-left: solid 1px;
+    border-left-color: rgba(255, 255, 255, 0.74);
+    padding-left: 16px;
+}
+
+    .LinkToProductEditor:hover {
+        color: rgba(255, 255, 255, 0.88);
+        transition: 0.2s;
+    }
+
+.description_table {
+    padding-left: 0px;
+    /*position: absolute;*/
+    margin-left: 35px;
+}
+
+.popup_delimiter {
+    bottom: 40px;
+    position: absolute;
+    background-color: #507CD1;
+    box-shadow: 0px 2px 4px 0 rgba(0,0,0,.2);
+    height: 2px;
+}
+
+/*  Настройки для сплиттера*/
+.wrap {
+    width: 100%;
+    top: 41px;
+    bottom: 21px;
+    font-size: 0;
+    position: absolute;
+    overflow: hidden;
+}
+
+.resizable {
+    width: 30%;
+    min-width: 250px;
+    max-width: 70%;
+    height: 100%;
+    padding: 0.5em;
+    display: inline-block;
+    /*border-left: 1px solid grey;*/
+}
+
+.resizable2 {
+    width: 70%;
+    position: absolute;
+    min-width: 400px;
+}
+
+.ui-resizable-e {
+    cursor: e-resize;
+    width: 5px;
+    right: -2px;
+    top: 0;
+    bottom: 0;
+    background-color: rgb(80, 80, 80);
+    /*background-color: #00d19f;*/
+}
+
+.tree_container_style {
+    left: 7px;
+    position: absolute;
+    top: 39px;
+    bottom: 45px;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    right: 75%;
+    /*box-shadow: 0px 2px 4px 0 rgba(0,0,0,.2);*/
+    border: solid 1px grey;
+    width: 97%;
+}
+
+.dropdown_style {
+    font-family: Verdana;
+    font-weight: normal;
+    height: 25px;
+    top: 5px;
+    position: absolute;
+    min-width: 150px;
+    left: 7px;
+    width: 97%;
+}
+
+.show_parent_btn {
+}
+
+
+.common {
+    font-family: Verdana;
+    font-size: 12px;
+}
+
+.loader {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url('../Icons/ajax-loader.gif') 50% 50% no-repeat rgb(249,249,249);
+}
+
+.fixed {
+    position: fixed;
+}
+
+.specification_header {
+    background-color: #507CD1;
+    width: 1024px;
+    height: 20px;
+    position: absolute;
+    left: 0px;
+    color: white;
+    font-family: Verdana;
+    font-size: 12px;
+    position: absolute;
+    font-weight: bold;
+    text-align: center;
+    top: 7px;
+    z-index: 99999;
+}
+
+.specification_header_column_1 {
+    position: absolute;
+    width: 270px;
+    height: 16px;
+    left: 0px;
+    top: 0px;
+    padding-top: 2px;
+    border-color: #1a3f88;
+    border: 1px solid #1a3f88;
+}
+
+.specification_header_column_2 {
+    position: absolute;
+    width: 326px;
+    height: 16px;
+    left: 271px;
+    top: 0px;
+    padding-top: 2px;
+    border: 1px solid #1a3f88;
+}
+
+.specification_header_column_3 {
+    position: absolute;
+    width: 257px;
+    height: 16px;
+    left: 598px;
+    top: 0px;
+    padding-top: 2px;
+    border: 1px solid #1a3f88;
+}
+
+.specification_header_column_4 {
+    position: absolute;
+    width: 55px;
+    height: 16px;
+    left: 856px;
+    top: 0px;
+    padding-top: 2px;
+    border: 1px solid #1a3f88;
+}
+
+.specification_header_column_5 {
+    position: absolute;
+    width: 110px;
+    height: 16px;
+    left: 912px;
+    top: 0px;
+    padding-top: 2px;
+    border: 1px solid #1a3f88;
+}
+
+
+.specification_gridview {
+    font-size: 12px;
+    font-weight: normal;
+    border: solid 1px grey;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    /*box-shadow: 0px 2px 4px 0 rgba(0,0,0,.2);*/
+    top: 65px;
+    position: absolute;
+    border-top: none;
+    width: 1022px;
+    height: 489px;
+    bottom: 52px;
+    top: 27px;
+    left: 0px;
+}
+
+.specification_excel_button {
+    font-family: Verdana;
+    border-color: #507CD1;
+    height: 30px;
+    width: 85px;
+    border-width: 2px;
+    background-color: #507CD1;
+    bottom: 10px;
+    background-color: white;
+    border-width: 1px;
+    border-color: #507CD1;
+    text-align: center;
+    margin: 4px;
+    font-size: 12px;
+    position: absolute;
+    bottom: 1px;
+    text-align: left;
+    left: 194px;
+    width: 193px;
+    text-align: center;
+    /*background-position: 122px;*/
+    /*background-repeat: no-repeat;*/
+    /*background-image: url(../Icons/excel.png);*/
+}
+
+    .specification_excel_button:hover {
+        background-color: #507CD1;
+        color: White;
+        cursor: pointer;
+    }
+
+.specification_pdf_button {
+    font-size: 12px;
+    font-family: Verdana;
+    border-color: #507CD1;
+    height: 30px;
+    width: 85px;
+    border-width: 2px;
+    background-color: #507CD1;
+    bottom: 10px;
+    background-color: white;
+    border-width: 1px;
+    border-color: #507CD1;
+    text-align: center;
+    margin: 4px;
+    position: absolute;
+    bottom: 1px;
+    text-align: left;
+    left: -4px;
+    width: 193px;
+    text-align: center;
+    /*background-position: 54px;
+    background-repeat: no-repeat;
+    background-image: url(../Icons/printer.png);*/
+}
+
+    .specification_pdf_button:hover {
+        font-size: 12px;
+        background-color: #507CD1;
+        color: White;
+        cursor: pointer;
+    }
+
+/* Start by setting display:none to make this hidden.
+   Then we position it in relation to the viewport window
+   with position:fixed. Width, height, top and left speak
+   for themselves. Background we set to 80% white with
+   our animation centered, and no-repeating */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: url(../Icons/ajax-loader.gif) 50% 50% no-repeat;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading {
+    overflow: hidden;
+}
+
+    /* Anytime the body has the loading class, our
+   modal element will be visible */
+    body.loading .modal {
+        display: block;
+    }
+
+.border-400px {
+    height: 2px;
+    width: 400px;
+    left: 0px;
+    bottom: 40px;
+    position: absolute;
+    background-color: #507CD1;
+    /*box-shadow: 0px 2px 4px 0 rgba(0,0,0,.2);*/
+}
+
+.border-800px {
+    height: 2px;
+    width: 800px;
+    left: 0px;
+    bottom: 40px;
+    position: absolute;
+    background-color: #507CD1;
+    /*box-shadow: 0px 2px 4px 0 rgba(0,0,0,.2);*/
+}
+
+.button.yes-button-remove-product-confirmation {
+    width: 70px;
+    bottom: 1px;
+    right: 71px;
+    position: absolute;
+    text-align: center;
+    font-size: 13px;
+}
+
+.button.no-button-remove-product-confirmation {
+    width: 70px;
+    text-align: center;
+    position: absolute;
+    bottom: 1px;
+    right: -4px;
+    font-size: 13px;
+}
+
+.button.yes-button-confirmaion {
+    width: 70px;
+    bottom: 1px;
+    right: 71px;
+    position: absolute;
+    text-align: center;
+    font-size: 13px;
+}
+
+.button.no-button-confirmaion {
+    width: 70px;
+    text-align: center;
+    position: absolute;
+    bottom: 1px;
+    right: -4px;
+    font-size: 13px;
+}
+
+.border-add-product {
+    background-color: #507CD1;
+    height: 2px;
+    width: 1024px;
+    left: -18px;
+    position: relative;
+    top: 485px;
+}
+
+.cancel_button.cancel-button-add-product {
+    top: 518px;
+    right: -4px;
+    font-size: 13px;
+}
+
+header-column1-add-product {
+    background: #507CD1;
+    color: white;
+    width: 300px;
+    position: absolute;
+    height: 20px;
+    left: 0px;
+    font-size: 14px;
+    text-align: center;
+    padding-top: 2px;
+    border-style: solid;
+    border-color: #1a3f88;
+    border-width: 1px;
+}
+
+header-column2-add-product {
+    background: #507CD1;
+    color: white;
+    width: 714px;
+    position: absolute;
+    left: 308px;
+    height: 20px;
+    font-size: 14px;
+    text-align: center;
+    padding-top: 2px;
+    border-bottom: solid 1px;
+    border-style: solid;
+    border-color: #1a3f88;
+    border-width: 1px;
+}
+
+.gridview-show-parents-popup {
+    position: absolute;
+    top: 79px;
+    left: 0px;
+    width: 798px;
+    height: 436px;
+    overflow-y: scroll;
+    border: solid grey 1px;
+    border-top-color: transparent;
+}
+
+.header-column1-show-parents-popup {
+    width: 326px;
+    position: absolute;
+    top: 16px;
+    left: -4px;
+    font-size: 12px;
+    background-color: #507CD1;
+    color: White;
+    text-align: center;
+    height: 18px;
+    padding-top: 4px;
+    z-index: 90;
+    border: 1px solid #1a3f88;
+}
+
+.header-column2-show-parents-popup {
+    margin-top: 16px;
+    margin-left: 323px;
+    margin-right: -6px;
+    font-size: 12px;
+    background-color: #507CD1;
+    color: White;
+    text-align: center;
+    height: 18px;
+    padding-top: 4px;
+    z-index: 90;
+    border: 1px solid #1a3f88;
+    width: 471px;
+}
+
+.border-550px {
+    height: 2px;
+    width: 550px;
+    left: 0px;
+    bottom: 40px;
+    position: absolute;
+    background-color: #507CD1;
+    /*box-shadow: 0px 2px 4px 0 rgba(0,0,0,.2);*/
+}
+
+.button.cancel-button-edit-group-popup {
+    width: 88px;
+    text-align: center;
+    position: absolute;
+    bottom: 1px;
+    right: -4px;
+    font-size: 13px;
+}
+
+.button.save-button-edit-group-popup {
+    width: 88px;
+    bottom: 1px;
+    right: 89px;
+    position: absolute;
+    text-align: center;
+    font-size: 13px;
+}
+
+border-580px {
+    height: 2px;
+    width: 580px;
+    left: 0px;
+    bottom: 40px;
+    position: absolute;
+    background-color: #507CD1;
+    /*box-shadow: 0px 2px 4px 0 rgba(0,0,0,.2);*/
+}
+
+.relocation_button {
+    top: 2px;
+    right: 306px;
+    width: 171px;
+    height: 40px;
+    color: white;
+    font-size: 12px;
+    font-family: Verdana;
+    background-color: #507CD1;
+    border: 0px solid;
+    border-left: solid 1px #7DA1E8;
+    z-index: 100;
+    margin-top:-2px;
+    position:fixed;
+    padding-top: 0px;
+}
+
+.button.cut_button {
+    background-image: url(../Icons/cut.png);
+    /* top: 42px; */
+     margin-left: -2px; 
+    width: 30px;
+    height: 30px;
+    background-position: 2px;
+    background-repeat: no-repeat;
+    /* border-radius: 50%; */
+}
+
+.button.paste_button {
+    margin-left: -2px; 
+    width: 30px;
+    height: 30px;
+    background-image: url(../Icons/paste.png);
+    background-position: 2px;
+    background-repeat: no-repeat;
+    /* border-radius: 50%; */
+
+}
+
+.relocation_buttons_panel {
+    margin-top: -2px;
+}
+
+.users_list {
+    font-family:Verdana;
+    color: #507CD1;
+    position: absolute;
+    top: 11px;
+    right: 500px;
+}
+
+.user_name_footer {
+        position: fixed;
+    bottom: 1px;
+    right: 25px;
+    font-size: 11px;
+    color: white;
+    /* font-weight: bold; */
+    text-decoration: underline;
+    text-align: right;
+}
+
+.user_name_footer:hover{
+    cursor:pointer;
+}
+
+.log_out_button {
+    position: fixed;
+    right: 6px;
+    bottom: 3px;
+}
+
+.log_out_button:hover {
+    cursor:pointer;
+}
+
+ .search_button
+        {
+        position: absolute;
+        width: 146px;
+        right: 147px;
+        height: 40px;
+        color: white;
+        font-size: 13px;
+        cursor: pointer;
+        font-family: Verdana;
+        background-repeat: no-repeat;
+        background-color: transparent;
+        border: none;
+        border-left: solid 1px #7DA1E8;
+        outline: none;
+        font-size: 12px;
+        padding-top: 0px;
+        }
+
+.button.log_in {
+    position: absolute;
+    left: 0px;
+    top: 64px;
+    width: 300px;
+    margin-left: 0px;
+    text-align: center;
+}
